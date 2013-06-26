@@ -13,14 +13,19 @@ class Browser
      * Constructor
      * @param array $data Browser data
      */
-    public function __construct($data)
+    public function __construct($data = array())
     {
-        $this->name       = ucwords($data['browser']);
-        $this->platform   = ucwords($data['platform']);
-        $this->version    = $data['version'];
-        /*$this->cookies    = $data['cookies'] === '1';
-        $this->javascript = $data['javascript'] === '1';
-        $this->cssVersion = $data['cssversion'];*/
+        if (isset($data['browser'])) {
+            $this->name = ucwords($data['browser']);
+        }
+
+        if (isset($data['platform'])) {
+            $this->platform = ucwords($data['platform']);
+        }
+
+        if (isset($data['version'])) {
+            $this->version = $data['version'];
+        }
     }
 
     /**
@@ -58,70 +63,46 @@ class Browser
      */
     public function is($name, $version = null)
     {
-        if ($this->name != ucwords($name)) {
-            return false;
-        }
-
         return $version !== null ? $this->version == $version : true;
     }
 
     /**
      * Is later than
-     * @param  string  $name    Browser name
      * @param  string  $version Browser version
      * @return boolean          Result
      */
-    public function isLaterThan($name, $version)
+    public function isLaterThan($version)
     {
-        if ($this->name != ucwords($name)) {
-            return false;
-        }
-
         return $this->version > $version;
     }
 
     /**
      * Is later than or equal
-     * @param  string  $name    Browser name
      * @param  string  $version Browser version
      * @return boolean          Result
      */
-    public function isEqualOrLaterThan($name, $version)
+    public function isEqualOrLaterThan($version)
     {
-        if ($this->name != ucwords($name)) {
-            return false;
-        }
-
         return $this->version >= $version;
     }
 
     /**
      * Is earlier than
-     * @param  string  $name    Browser name
      * @param  string  $version Browser version
      * @return boolean          Result
      */
-    public function isEarlierThan($name, $version)
+    public function isEarlierThan($version)
     {
-        if ($this->name != ucwords($name)) {
-            return false;
-        }
-
         return $this->version < $version;
     }
 
     /**
      * Is earlier than or equal
-     * @param  string  $name    Browser name
      * @param  string  $version Browser version
      * @return boolean          Result
      */
-    public function isEqualOrEarlierThan($name, $version)
+    public function isEqualOrEarlierThan($version)
     {
-        if ($this->name != ucwords($name)) {
-            return false;
-        }
-
         return $this->version <= $version;
     }
 
