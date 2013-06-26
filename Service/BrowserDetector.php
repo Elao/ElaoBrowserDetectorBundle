@@ -2,6 +2,7 @@
 
 namespace Elao\BrowserDetectorBundle\Service;
 
+use Symfony\Component\HttpFoundation\Request;
 use Elao\BrowserDetectorBundle\Model\Browser;
 
 /**
@@ -16,12 +17,27 @@ class BrowserDetector
     private $browscapEnabled;
 
     /**
+     * Browser
+     * @var Browser
+     */
+    private $browser;
+
+    /**
      * Constructor
      * @param boolean $browscapEnabled Is browscap enabled
      */
     public function __construct($browscapEnabled)
     {
         $this->browscapEnabled = $browscapEnabled;
+    }
+
+    /**
+     * Set the request
+     * @param Request $request
+     */
+    public function setRequest(Request $request)
+    {
+        $this->browser = $this->getBrowser($request->headers->get('user-agent'));
     }
 
     /**

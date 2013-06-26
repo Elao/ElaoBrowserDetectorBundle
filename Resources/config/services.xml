@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <service id="elao_browser_detector.browser_detector" class="%elao_browser_detector.browser_detector.class%">
+        <service id="elao.browser_detector" class="%elao_browser_detector.browser_detector.class%">
             <argument>%elao.browser_detector.browscap_enabled%</argument>
         </service>
     </services>
