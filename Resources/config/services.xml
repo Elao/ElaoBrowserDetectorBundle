@@ -4,17 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="elao_browser_detector.example.class">Elao\BrowserDetectorBundle\Example</parameter>
+        <parameter key="elao_browser_detector.browser_detector.class">Elao\BrowserDetectorBundle\Service\BrowserDetector</parameter>
     </parameters>
 
     <services>
-        <service id="elao_browser_detector.example" class="%elao_browser_detector.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="elao_browser_detector.browser_detector" class="%elao_browser_detector.browser_detector.class%">
+            <argument>%elao.browser_detector.browscap_enabled%</argument>
         </service>
     </services>
-    -->
 </container>

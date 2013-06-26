@@ -24,5 +24,8 @@ class ElaoBrowserDetectorExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $browscapDirective = ini_get('browscap');
+        $container->setParameter('elao.browser_detector.browscap_enabled', !empty($browscapDirective));
     }
 }
