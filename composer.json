@@ -1,9 +1,9 @@
 {
-    "name": "elao/browser-detector",
+    "name": "elao/browser-detector-bundle",
     "type": "symfony-bundle",
     "description": "Elao Browser Detector Bundle",
     "license": "MIT",
-    "keywords": ["browser", "detection", "user-agent"],
+    "keywords": ["browser", "detection", "user-agent", "browscap"],
     "authors": [
         {
             "name": "Thomas Jarrand",
