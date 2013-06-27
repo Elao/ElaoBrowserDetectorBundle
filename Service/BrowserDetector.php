@@ -65,7 +65,7 @@ class BrowserDetector
     {
         preg_match('/^([<>]=?)?(.+)/', $version, $matches);
 
-        $versionNumber = floatval($matches[2]);
+        $versionNumber = isset($matches[2]) ? floatval($matches[2]) : null;
 
         switch ($matches[1]) {
             case '<=':

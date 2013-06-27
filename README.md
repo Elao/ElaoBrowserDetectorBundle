@@ -13,7 +13,7 @@ Require the bundle via composer:
 Add the bundle to your AppKernel.php:
 
 	new Elao\BrowserDetectorBundle\ElaoBrowserDetectorBundle()
-	
+
 Configuration:
 --------------
 Register the browsers that are not and/or partially supported by your application:
@@ -22,10 +22,10 @@ Register the browsers that are not and/or partially supported by your applicatio
     	browsers:
         	partially_compatible:
             	"Internet Explorer": "<9"
-           		"Opera"
+           		"Opera": ~
         	incompatible:
            		"Internet Explorer": "<=7"
-           		
+
 Accepted version prefix :
 
 -	none : exact version number, ex: "Firefox": '3.6' (only Firefox 3.6 will match)
@@ -57,23 +57,23 @@ You're now able to get some compatibility information from the BrowserDetector s
 	$browserDetector->isCompatible();
 	$browserDetector->isPartiallyCompatible();
 	$browserDetector->isIncompatible();
-	
+
 ### Accessing the current Browser instance
 
 If needed, you can work with the Browser object that provide a various set of helpers methods:
 
 	// Get the current Browser instance:
 	$browser = $browserDetector->getBrowser();
-	
+
 	// Get the Name of the browser, ex: 'Firefox'
 	$browser->getName();
-	
+
 	// Get the Version of the browser, ex: '22.0'
 	$browser->getVersion();
-	
+
 	// Get the platform of the browser, ex: 'MacOsX'
 	$browser->getPlatform();
-	
+
 	// Compatibility issers:
 	is(string $name, int $version = null)
 	isPlatform(string $platform)
