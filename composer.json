@@ -1,0 +1,34 @@
+{
+    "name": "elao/browser-detector",
+    "type": "symfony-bundle",
+    "description": "Elao Browser Detector Bundle",
+    "keywords": ["browser", "detection", "user-agent"],
+    "authors": [
+        {
+            "name": "Thomas Jarrand",
+            "email": "thomas.jarrand@elao.com"
+        },
+        {
+            "name": "Benjamin Lévêque",
+            "email": "benjamin.leveque@elao.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Elao\\BrowserDetectorBundle": "."
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "2.3-dev"
+        }
+    },
+
+    "target-dir": "Elao/BrowserDetectorBundle"
+}
