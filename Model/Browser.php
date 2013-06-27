@@ -63,6 +63,10 @@ class Browser
      */
     public function is($name, $version = null)
     {
+        if ($this->name != ucwords($name)) {
+            return false;
+        }
+
         return $version !== null ? $this->version == $version : true;
     }
 
