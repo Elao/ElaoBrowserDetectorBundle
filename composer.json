@@ -2,6 +2,7 @@
     "name": "elao/browser-detector",
     "type": "symfony-bundle",
     "description": "Elao Browser Detector Bundle",
+    "license": "MIT",
     "keywords": ["browser", "detection", "user-agent"],
     "authors": [
         {
