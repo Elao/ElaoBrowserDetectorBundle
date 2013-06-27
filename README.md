@@ -29,10 +29,10 @@ Register the browsers that are not and/or partially supported by your applicatio
 Accepted version prefix :
 
 -	none : exact version number, ex: "Firefox": '3.6' (only Firefox 3.6 will match)
--	'<' : strictly earlier, ex: "Firefox": '<3.6' (Firefox 3.6 will not match, Firefox 3.7 will)
--	'>' : strictly later, ex: "Firefox": '>3.6' (Firefox 3.6 will not match, Firefox 3.5 will)
--	'<=' : exacte version number, ex: "Firefox": '<=3.6' (Firefox 3.6 and 3.5 will match)
--	'>=' : exacte version number, ex: "Firefox": '>=3.6' (Firefox 3.6 and 3.7 will match)
+-	'>' : strictly earlier, ex: "Firefox": '>3.6' (Firefox 3.6 will not match, Firefox 3.7 will)
+-	'<' : strictly later, ex: "Firefox": '<3.6' (Firefox 3.6 will not match, Firefox 3.5 will)
+-	'<=' : exact version number, ex: "Firefox": '<=3.6' (Firefox 3.6 and 3.5 will match)
+-	'>=' : exact version number, ex: "Firefox": '>=3.6' (Firefox 3.6 and 3.7 will match)
 
 
 How it works:
