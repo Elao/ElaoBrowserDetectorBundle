@@ -26,13 +26,14 @@ Register the browsers that are not and/or partially supported by your applicatio
         	incompatible:
            		"Internet Explorer": "<=7"
 
-Accepted version prefix :
+Accepted version format:
 
--	none : exact version number, ex: "Firefox": '3.6' (only Firefox 3.6 will match)
--	'>' : strictly earlier, ex: "Firefox": '>3.6' (Firefox 3.6 will not match, Firefox 3.7 will)
--	'<' : strictly later, ex: "Firefox": '<3.6' (Firefox 3.6 will not match, Firefox 3.5 will)
--	'<=' : exact version number, ex: "Firefox": '<=3.6' (Firefox 3.6 and 3.5 will match)
--	'>=' : exact version number, ex: "Firefox": '>=3.6' (Firefox 3.6 and 3.7 will match)
+-   none : any version number, ex: "Firefox": ~ (any Firefox version will match)
+-	'n' : exact version number, ex: "Firefox": '3.6' (only Firefox 3.6 will match)
+-	'>n' : strictly later, ex: "Firefox": '>3.6' (Firefox 3.6 will not match, Firefox 3.7 will)
+-	'<n' : strictly earlier, ex: "Firefox": '<3.6' (Firefox 3.6 will not match, Firefox 3.5 will)
+-	'>=n' : equal or later version, ex: "Firefox": '>=3.6' (Firefox 3.6 and 3.7 will match)
+-   '<=n' : equal or earlier version, ex: "Firefox": '<=3.6' (Firefox 3.6 and 3.5 will match)
 
 
 How it works:
@@ -77,6 +78,7 @@ If needed, you can work with the Browser object that provide a various set of he
 	// Compatibility issers:
 	is(string $name, int $version = null)
 	isPlatform(string $platform)
+    isExactly(int $version)
 	isLaterThan(int $version)
 	isEqualOrLaterThan(int $version)
 	isEarlierThan(int $version)

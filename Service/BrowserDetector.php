@@ -63,32 +63,34 @@ class BrowserDetector
 
     public function parseVersion($version)
     {
-        preg_match('/^([<>]=?)?(.+)/', $version, $matches);
+        if (!empty($version) && preg_match('/^([<>]=?)?(.+)/', $version, $matches)) {
+            $versionNumber = floatval($matches[2]);
 
-        $versionNumber = isset($matches[2]) ? floatval($matches[2]) : null;
+            switch ($matches[1]) {
+                case '<=':
+                    $test = 'isEqualOrEarlierThan';
+                    break;
+                case '<':
+                    $test = 'isEarlierThan';
+                    break;
+                case '>=':
+                    $test = 'isEqualOrLaterThan';
+                    break;
+                case '>':
+                    $test = 'isLaterThan';
+                    break;
+                default:
+                    $test = 'isExactly';
+                    break;
+            }
 
-        switch ($matches[1]) {
-            case '<=':
-                $test = 'isEqualOrEarlierThan';
-                break;
-            case '<':
-                $test = 'isEarlierThan';
-                break;
-            case '>=':
-                $test = 'isEqualOrLaterThan';
-                break;
-            case '>':
-                $test = 'isLaterThan';
-                break;
-            default:
-                $test = 'is';
-                break;
+            return array(
+                'test'    => $test,
+                'version' => $versionNumber,
+            );
+        } else {
+            return array();
         }
-
-        return array(
-            'test'    => $test,
-            'version' => $versionNumber,
-        );
     }
 
     /**
@@ -137,7 +139,7 @@ class BrowserDetector
         $this->compatibility = self::BROWSER_COMPATIBLE;
 
         foreach ($this->requirements['incompatible'] as $browser => $req) {
-            if ($this->browser->is($browser) && $this->browser->{$req['test']}($req['version'])) {
+            if ($this->browser->matches($browser, $req)) {
                 $this->compatibility = self::BROWSER_INCOMPATIBLE;
                 break;
             }
@@ -145,7 +147,7 @@ class BrowserDetector
 
         if ($this->compatibility !== self::BROWSER_INCOMPATIBLE) {
             foreach ($this->requirements['partially_compatible'] as $browser => $req) {
-                if ($this->browser->is($browser) && $this->browser->{$req['test']}($req['version'])) {
+                if ($this->browser->matches($browser, $req)) {
                     $this->compatibility = self::BROWSER_PARTIALLY_COMPATIBLE;
                     break;
                 }

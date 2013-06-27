@@ -71,6 +71,35 @@ class Browser
     }
 
     /**
+     * Test if the browser matches this name and version requirements
+     * @param  string   $name   The browser name
+     * @param  array    $req    The version requirements
+     * @return boolean
+     */
+    public function matches($name, $req)
+    {
+        if (!$this->is($name)) {
+            return false;
+        }
+
+        if (isset($req['test']) && isset($req['version']) && !empty($req['version']) && method_exists($this, $req['test'])) {
+            return $this->{$req['test']}($req['version']);
+        }
+
+        return true;
+    }
+
+    /**
+     * Is exactly
+     * @param  string  $version Browser version
+     * @return boolean          Result
+     */
+    public function isExactly($version)
+    {
+        return $this->version == $version;
+    }
+
+    /**
      * Is later than
      * @param  string  $version Browser version
      * @return boolean          Result
