@@ -107,7 +107,7 @@ class BrowserDetector
      * @param  Request $request
      * @return Browser
      */
-    public function createBrowserFromRequest($request)
+    public function createBrowserFromRequest(Request $request)
     {
         return $this->createBrowserFromUserAgent($request->headers->get('user-agent'));
     }
