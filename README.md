@@ -24,7 +24,7 @@ Register the browsers that are not and/or partially supported by your applicatio
             	"Internet Explorer": "<9"
            		"Opera": ~
         	incompatible:
-           		"Internet Explorer": "<=7"
+           		"IE": "<=7"
 
 Accepted version format:
 
