@@ -14,17 +14,15 @@
             "email": "benjamin.leveque@elao.com"
         }
     ],
-
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3"
+        "symfony/framework-bundle": "~2.3",
+        "elao/browser-detector": "1.1.*"
     },
-
     "autoload": {
         "psr-0": {
-            "Elao\\BrowserDetectorBundle": "."
+            "Elao\\Bundle\\BrowserDetectorBundle": "."
         }
-    }
-
-    "target-dir": "Elao/BrowserDetectorBundle"
+    },
+    "target-dir": "Elao/Bundle/BrowserDetectorBundle"
 }

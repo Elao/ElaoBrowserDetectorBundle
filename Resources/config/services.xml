@@ -5,18 +5,19 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="elao_browser_detector.kernel.request_listener.class">Elao\BrowserDetectorBundle\EventListener\RequestListener</parameter>
-        <parameter key="elao_browser_detector.browser_detector.class">Elao\BrowserDetectorBundle\Service\BrowserDetector</parameter>
+        <parameter key="elao_browser_detector.event_listener.request.class">Elao\BrowserDetectorBundle\EventListener\RequestListener</parameter>
+        <parameter key="elao_browser_detector.browser_detector.class">Elao\BrowserDetector\BrowserDetector</parameter>
+        <parameter key="elao_browser_detector.browser_detector.parameters.browscap_enabled">false</parameter>
     </parameters>
 
     <services>
-        <service id="kernel.listener.elao.browser_detector" class="%elao_browser_detector.kernel.request_listener.class%">
-            <argument type="service" id="elao.browser_detector" />
+        <service id="elao_browser_detector.event_listener.request" class="%elao_browser_detector.event_listener.request.class%">
+            <argument type="service" id="elao_browser_detector.browser_detector" />
             <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="2000"/>
         </service>
 
-        <service id="elao.browser_detector" class="%elao_browser_detector.browser_detector.class%">
-            <argument>%elao.browser_detector.browscap_enabled%</argument>
+        <service id="elao_browser_detector.browser_detector" class="%elao_browser_detector.browser_detector.class%">
+            <argument>%elao_browser_detector.browser_detector.parameters.browscap_enabled%</argument>
         </service>
     </services>
 </container>

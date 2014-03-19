@@ -1,18 +1,25 @@
-Elao Browser Detector Bundle
-========================
+Elao BrowserDetector Bundle
+===========================
+
+## Changelog
+
+* 1.1.0
+	* BrowserCap and Browser ar now in a separate **ElaoBrowserDetector** component
+	* Rename some parameters
+	* Fix composer
 
 Installation:
 -------------
 Require the bundle via composer:
 
     "require": {
-		"elao/browser-detector": "1.0.*"
+		"elao/browser-detector-bundle": "1.1.*"
 	}
 
 
 Add the bundle to your AppKernel.php:
 
-	new Elao\BrowserDetectorBundle\ElaoBrowserDetectorBundle()
+	new Elao\Bundle\BrowserDetectorBundle\ElaoBrowserDetectorBundle()
 
 Configuration:
 --------------
@@ -41,7 +48,7 @@ How it works:
 -	The bundle listen to the *kernel.request* event.
 -	It gets the *user-agent* http header directive from the request on each master request.
 -	It use the php [get_browser](http://php.net/manual/function.get-browser.php) function (based on the [browscap.ini](http://tempdownloads.browserscap.com/) file) to detect wich browser is used.
--	It instantiate an _Elao\BrowserDetectorBundle\Model\\**Browser**_ object that will resolve compatibility of the current browser based your configuration.
+-	It instantiate an _Elao\BrowserDetector\\**Browser**_ object that will resolve compatibility of the current browser based your configuration.
 
 Usage:
 ------
