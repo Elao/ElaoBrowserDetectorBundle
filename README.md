@@ -6,7 +6,7 @@ Installation:
 Require the bundle via composer:
 
     "require": {
-		"elao/browser-detector": "2.3.x-dev"
+		"elao/browser-detector": "1.0.*"
 	}
 
 

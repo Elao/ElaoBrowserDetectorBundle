@@ -24,12 +24,7 @@
         "psr-0": {
             "Elao\\BrowserDetectorBundle": "."
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.3-dev"
-        }
-    },
+    }
 
     "target-dir": "Elao/BrowserDetectorBundle"
 }
