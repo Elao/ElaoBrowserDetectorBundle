@@ -55,9 +55,9 @@ Usage:
 ### The BrowserDetector service
 Get the BrowserDetector service or have it injected in your service: **elao.browser_detector**
 
-	$browserDetector = $container->get('elao.browser_detector');
+	$browserDetector = $container->get('elao_browser_detector');
 	// or
-	<argument type="service" id="elao.browser_detector" />
+	<argument type="service" id="elao_browser_detector" />
 
 You're now able to get some compatibility information from the BrowserDetector service:
 
