@@ -7,7 +7,7 @@
     <parameters>
         <parameter key="elao_browser_detector.event_listener.request.class">Elao\BrowserDetectorBundle\EventListener\RequestListener</parameter>
         <parameter key="elao_browser_detector.browser_detector.class">Elao\BrowserDetector\BrowserDetector</parameter>
-        <parameter key="elao_browser_detector.browser_detector.parameters.browscap_enabled">false</parameter>
+        <parameter key="elao.browser_detector.browser_detector.parameters.browscap_enabled">false</parameter>
     </parameters>
 
     <services>
@@ -16,7 +16,7 @@
             <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="2000"/>
         </service>
 
-        <service id="elao_browser_detector.browser_detector" class="%elao_browser_detector.browser_detector.class%">
+        <service id="elao.browser_detector.browser_detector" class="%elao_browser_detector.browser_detector.class%">
             <argument>%elao_browser_detector.browser_detector.parameters.browscap_enabled%</argument>
         </service>
     </services>
