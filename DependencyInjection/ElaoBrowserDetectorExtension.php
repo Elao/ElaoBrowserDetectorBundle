@@ -1,6 +1,6 @@
 <?php
 
-namespace Elao\BrowserDetectorBundle\DependencyInjection;
+namespace Elao\Bundle\BrowserDetectorBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

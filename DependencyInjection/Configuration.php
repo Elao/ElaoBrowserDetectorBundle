@@ -1,6 +1,6 @@
 <?php
 
-namespace Elao\BrowserDetectorBundle\DependencyInjection;
+namespace Elao\Bundle\BrowserDetectorBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

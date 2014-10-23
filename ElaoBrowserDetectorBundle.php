@@ -1,6 +1,6 @@
 <?php
 
-namespace Elao\BrowserDetectorBundle;
+namespace Elao\Bundle\BrowserDetectorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
