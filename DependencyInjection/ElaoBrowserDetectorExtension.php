@@ -1,16 +1,15 @@
 <?php
 
-namespace Elao\BrowserDetectorBundle\DependencyInjection;
+namespace Elao\Bundle\BrowserDetectorBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
- * This is the class that loads and manages your bundle configuration
- *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ * Browser Detector Bundle Extension
  */
 class ElaoBrowserDetectorExtension extends Extension
 {
@@ -24,6 +23,10 @@ class ElaoBrowserDetectorExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        if (!$config) {
+            throw new InvalidConfigurationException("Missing 'elao_browser_detector' configuration.", 1);
+        }
 
         $browscapDirective = ini_get('browscap');
         $container->setParameter('elao_browser_detector.browser_detector.parameters.browscap_enabled', !empty($browscapDirective));

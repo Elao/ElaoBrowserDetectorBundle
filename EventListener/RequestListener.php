@@ -1,15 +1,19 @@
 <?php
 
-namespace Elao\BrowserDetectorBundle\EventListener;
+namespace Elao\Bundle\BrowserDetectorBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernel;
-use Elao\BrowserDetectorBundle\Service\BrowserDetector;
+use Elao\BrowserDetector\BrowserDetector;
 
+/**
+ * Request Listener
+ */
 class RequestListener
 {
     /**
      * Listener manager
+     *
      * @var BrowserDetector
      */
     private $browserDetector;
@@ -23,12 +27,19 @@ class RequestListener
         $this->browserDetector = $browserDetector;
     }
 
+    /**
+     * On Kernel Request
+     *
+     * @param GetResponseEvent $event
+     *
+     * @return void
+     */
     public function onKernelRequest(GetResponseEvent $event)
     {
         if (HttpKernel::MASTER_REQUEST != $event->getRequestType()) {
             return;
         }
 
-        $this->browserDetector->setRequest($event->getRequest());
+        $this->browserDetector->setUserAgent($event->getRequest()->headers->get('user-agent'));
     }
 }
