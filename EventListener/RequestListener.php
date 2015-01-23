@@ -4,7 +4,7 @@ namespace Elao\Bundle\BrowserDetectorBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernel;
-use Elao\Bundle\BrowserDetectorBundle\Service\BrowserDetector;
+use Elao\BrowserDetector\BrowserDetector;
 
 /**
  * Request Listener
@@ -13,6 +13,7 @@ class RequestListener
 {
     /**
      * Listener manager
+     *
      * @var BrowserDetector
      */
     private $browserDetector;
