@@ -14,10 +14,16 @@
             "email": "benjamin.leveque@elao.com"
         }
     ],
+    "repositories": {
+        "elao/browser-detector": {
+            "url":"git@github.com:Elao/ElaoBrowserDetector.git",
+            "type":"git"
+        }
+    },
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
-        "elao/browser-detector": "develop-dev"
+        "elao/browser-detector": "dev-develop"
     },
     "autoload": {
         "psr-4": {
