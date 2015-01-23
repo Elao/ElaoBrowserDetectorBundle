@@ -40,6 +40,6 @@ class RequestListener
             return;
         }
 
-        $this->browserDetector->setRequest($event->getRequest());
+        $this->browserDetector->setUserAgent($event->getRequest()->headers->get('user-agent'));
     }
 }
