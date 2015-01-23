@@ -20,9 +20,13 @@
         "elao/browser-detector": "1.1.*"
     },
     "autoload": {
-        "psr-0": {
-            "Elao\\Bundle\\BrowserDetectorBundle": "."
+        "psr-4": {
+            "Elao\\Bundle\\BrowserDetectorBundle\\": "."
         }
     },
-    "target-dir": "Elao/Bundle/BrowserDetectorBundle"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2.x-dev"
+        }
+    }
 }
