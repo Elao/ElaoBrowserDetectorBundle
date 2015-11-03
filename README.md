@@ -1,6 +1,8 @@
 Elao BrowserDetector Bundle
 ===========================
 
+## Deprecated : please use https://github.com/piwik/device-detector instead.
+
 ## Changelog
 
 * 1.1.0
